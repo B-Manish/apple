@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import "../App.css";
 import Apple from "./Apple";
+import Highlights from "./Highlights";
 function Home() {
   return (
     <>
@@ -11,6 +12,7 @@ function Home() {
         }}
       >
         <Apple />
+        <Highlights />
         {/* <Box>
           <Box className="roboto" sx={{ color: "#5BF2CE" }}>
             Hi, my name is
