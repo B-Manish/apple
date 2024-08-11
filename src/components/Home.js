@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import "../App.css";
-import Aboutme from "./Aboutme";
-import Built from "./Built";
-import Getintouch from "./GetinTouch";
 import Apple from "./Apple";
 function Home() {
   return (
@@ -11,8 +8,6 @@ function Home() {
       <Box
         sx={{
           height: "100%",
-          display: "grid",
-          placeItems: "center",
         }}
       >
         <Apple />

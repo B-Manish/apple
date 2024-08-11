@@ -12,15 +12,19 @@ const Apple = () => {
     gsap.to(".aa", { opacity: 1, y: 0, duration: 1, stagger: 0.25 });
   }, []);
   return (
-    <Box sx={{ width: "100%", background: "black" }}>
+    <Box sx={{ width: "100%", background: "black", border: "1px solid red" }}>
       <Box
-        sx={{ opacity: "0", fontSize: "100px" }}
-        className="roboto"
+        sx={{
+          opacity: "0",
+          fontSize: "28px",
+          fontWeight: "600",
+          color: "#d7d5d1",
+        }}
         id="apple"
       >
-        Apple
+        iPhone 15 Pro
       </Box>
-      <Box sx={{ border: "1px solid red", width: "400px", height: "800px" }}>
+      {/* <Box sx={{ border: "1px solid red", width: "400px", height: "800px" }}>
         <video
           autoPlay
           muted
@@ -49,7 +53,7 @@ const Apple = () => {
             Watch the flim
           </Box>
         </Box>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

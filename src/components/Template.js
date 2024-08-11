@@ -8,14 +8,14 @@ function Template({ page }) {
       container
       sx={{
         height: "100vh",
-        background: "#081324",
+        background: "black",
       }}
     >
-      <Navbar />
       <Box
         sx={{
-          height: "calc(100vh - 89px)",
+          height: "100vh",
           width: "100vw",
+          border: "1px solid yellow",
         }}
       >
         {page}
