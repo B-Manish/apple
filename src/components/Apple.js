@@ -24,25 +24,34 @@ const Apple = () => {
     >
       <Box
         sx={{
-          opacity: "0",
-          fontSize: "28px",
-          fontWeight: "600",
-          color: "#d7d5d1",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
-        id="iphone"
-        className="roboto"
       >
-        iPhone 15 Pro
-      </Box>
-      <Box sx={{ width: "80%", maxWidth: "1200px" }}>
-        <video
-          autoPlay
-          muted
-          playsInline={true}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        <Box
+          sx={{
+            opacity: "0",
+            fontSize: "28px",
+            fontWeight: "600",
+            color: "#d7d5d1",
+            display: "inline-block",
+          }}
+          id="iphone"
+          className="roboto"
         >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
+          iPhone 15 Pro
+        </Box>
+        <Box sx={{ width: "80%", maxWidth: "1200px" }}>
+          <video
+            autoPlay
+            muted
+            playsInline={true}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+        </Box>
       </Box>
       <Box
         sx={{
@@ -51,7 +60,7 @@ const Apple = () => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          mt: "300px",
+          mt: "10%",
         }}
         id="gg"
       >

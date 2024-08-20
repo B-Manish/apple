@@ -15,7 +15,6 @@ function Template({ page }) {
         sx={{
           height: "100vh",
           width: "100vw",
-          border: "1px solid yellow",
         }}
       >
         {page}
