@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import "../App.css";
 import Apple from "./Apple";
 import Highlights from "./Highlights";
+import Threed from "./Threed";
 function Home() {
   return (
     <>
@@ -12,7 +13,8 @@ function Home() {
         }}
       >
         <Apple />
-        <Highlights />
+        {/* <Highlights /> */}
+        <Threed />
         {/* <Box>
           <Box className="roboto" sx={{ color: "#5BF2CE" }}>
             Hi, my name is
