@@ -34,11 +34,23 @@ const Threed = () => {
     gsap.to("#heading", { y: 0, opacity: 1 });
   }, []);
   return (
-    <Box>
-      <Box id="heading" sx={{ opacity: "0" }}>
-        gg
+    <Box
+      sx={{
+        border: "1px solid red",
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+        background: "black",
+      }}
+    >
+      <Box
+        id="heading"
+        sx={{ opacity: "0", color: "#86868b", fontSize: "56px" }}
+        className="roboto"
+      >
+        Take a closer look.
       </Box>
-      <Box id="heading" sx={{ opacity: "0" }}>
+      <Box id="heading" sx={{ opacity: "0", display: "flex" }}>
         <ModelView
           index={1}
           groupRef={small}
@@ -48,7 +60,7 @@ const Threed = () => {
           item={model}
           size={size}
         />
-        <ModelView
+        {/* <ModelView
           index={2}
           groupRef={large}
           gsapType="view2"
@@ -56,14 +68,11 @@ const Threed = () => {
           setRotationState={setLargeRotation}
           item={model}
           size={size}
-        />
+        /> */}
 
         <Canvas
           style={{
-            border: "1px solid red",
             position: "fixed",
-            height: "80vh",
-            width: "80vw",
             top: "0",
             bottom: "0",
             left: "0",
@@ -81,7 +90,9 @@ const Threed = () => {
             display: "flex",
             flexDirection: "row",
             border: "1px solid red",
-            padding: "5px",
+            padding: "8px",
+            background: "#2E2E30",
+            borderRadius: "20px",
           }}
         >
           {models.map((item, i) => (
@@ -102,7 +113,7 @@ const Threed = () => {
         <Box
           sx={{
             display: "flex",
-            background: "grey",
+            background: "#2E2E30",
             borderRadius: "10px",
             padding: "0 10px",
           }}

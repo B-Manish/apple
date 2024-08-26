@@ -1,6 +1,4 @@
 import React, { useState, useRef, Suspense } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { Box } from "@mui/material";
 import "../App.css";
 import {
@@ -12,7 +10,6 @@ import {
 import Lights from "./Lights";
 import Iphone from "./Iphone";
 import * as THREE from "three";
-// if screnwidth is less than 760 PieChartOutlineSharp, then dusplay smallherovideo
 
 const ModelView = ({
   index,
@@ -23,9 +20,6 @@ const ModelView = ({
   item,
   size,
 }) => {
-  //   useGSAP(() => {
-  //     gsap.to("#heading", { y: 0, opacity: 1 });
-  //   }, []);
   return (
     <View
       index={index}
