@@ -57,7 +57,11 @@ const ModelView = ({
             </Html>
           }
         >
-          <Iphone scale={index === 1 ? [15, 15, 15] : [17, 17, 17]} />
+          <Iphone
+            scale={index === 1 ? [15, 15, 15] : [17, 17, 17]}
+            item={item}
+            size={size}
+          />
         </Suspense>
       </group>
     </View>
