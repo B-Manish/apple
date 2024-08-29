@@ -24,7 +24,7 @@ const ModelView = ({
     <View
       index={index}
       id={gsapType}
-      style={{ border: "1px solid green", height: "80vh", width: "80vw" }}
+      style={{ border: "1px solid green", height: "80vh", width: "40vw" }}
     >
       {/* Ambient Light */}
       <ambientLight intensity={0.3} />
