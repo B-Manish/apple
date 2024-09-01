@@ -13,6 +13,7 @@ import { animateWithGsapTimeline } from "../utils/animations";
 // if screnwidth is less than 760 PieChartOutlineSharp, then dusplay smallherovideo
 
 const Threed = () => {
+  const [isFirstRender, setIsFirstRender] = useState(true);
   const [size, setSize] = useState("small");
   const [model, setModel] = useState({
     title: "iPhone 15 Pro in Natural Titanium",
@@ -34,19 +35,54 @@ const Threed = () => {
 
   // timeline
   const tl = gsap.timeline();
-
   useEffect(() => {
-    if (size === "large") {
-      animateWithGsapTimeline(tl, small, smallRotation, "#view1", "view2", {
-        transform: "translateX(-100%)",
-        duration: 2,
-      });
-    }
-    if (size === "small") {
-      animateWithGsapTimeline(tl, large, largeRotation, "#view2", "#view1", {
-        transform: "translateX(0)",
-        duration: 2,
-      });
+    // animateWithGsapTimeline(tl, large, largeRotation, "#view2", "#view1", {
+    //   transform: "translateX(0)",
+    //   duration: 2,
+    // });
+    if (!isFirstRender) {
+      if (size === "large") {
+        tl.to(
+          "#view1",
+          {
+            transform: "translateX(-100%)",
+            duration: 2,
+            ease: "power2.inOut",
+          },
+          ">"
+        );
+        tl.to(
+          "#view2",
+          {
+            transform: "translateX(-100%)",
+            duration: 2,
+            ease: "power2.inOut",
+          },
+          "<"
+        );
+      }
+      if (size === "small") {
+        tl.to(
+          "#view2",
+          {
+            transform: "translateX(0px)",
+            duration: 2,
+            ease: "power2.inOut",
+          },
+          ">"
+        );
+        tl.to(
+          "#view1",
+          {
+            transform: "translateX(0px)",
+            duration: 2,
+            ease: "power2.inOut",
+          },
+          "<"
+        );
+      }
+    } else {
+      setIsFirstRender(false);
     }
   }, [size]);
 
@@ -56,11 +92,11 @@ const Threed = () => {
   return (
     <Box
       sx={{
-        border: "1px solid red",
         display: "flex",
         alignItems: "center",
         flexDirection: "column",
         background: "black",
+        overflowX: "hidden",
       }}
     >
       <Box
@@ -70,25 +106,38 @@ const Threed = () => {
       >
         Take a closer look.
       </Box>
-      <Box id="heading" sx={{ opacity: "0", display: "flex" }}>
-        <ModelView
-          index={1}
-          groupRef={small}
-          gsapType="view1"
-          controlRef={cameraControlSmall}
-          setRotationState={setSmallRotation}
-          item={model}
-          size={size}
-        />
-        <ModelView
-          index={2}
-          groupRef={large}
-          gsapType="view2"
-          controlRef={cameraControlLarge}
-          setRotationState={setLargeRotation}
-          item={model}
-          size={size}
-        />
+      <Box
+        id="heading"
+        sx={{
+          opacity: "0",
+          display: "flex",
+          width: "65vw",
+        }}
+      >
+        <Box>
+          <ModelView
+            index={1}
+            groupRef={small}
+            gsapType="view1"
+            controlRef={cameraControlSmall}
+            setRotationState={setSmallRotation}
+            item={model}
+            size={size}
+            width="65vw"
+          />
+        </Box>
+        <Box>
+          <ModelView
+            index={2}
+            groupRef={large}
+            gsapType="view2"
+            controlRef={cameraControlLarge}
+            setRotationState={setLargeRotation}
+            item={model}
+            size={size}
+            width="65vw"
+          />
+        </Box>
 
         <Canvas
           style={{
@@ -109,7 +158,6 @@ const Threed = () => {
           sx={{
             display: "flex",
             flexDirection: "row",
-            border: "1px solid red",
             padding: "8px",
             background: "#2E2E30",
             borderRadius: "20px",
@@ -143,8 +191,8 @@ const Threed = () => {
               key={item?.label}
               sx={{
                 border: "1px solid blue",
-                backgroundColor: size === item?.value ? "white" : "yellow",
-                color: size === item?.value ? "black" : "grey",
+                backgroundColor: size === item?.value ? "white" : "grey",
+                color: size === item?.value ? "black" : "black",
                 height: "35px",
                 width: "35px",
                 borderRadius: "25px",

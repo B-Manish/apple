@@ -19,12 +19,16 @@ const ModelView = ({
   setRotationState,
   item,
   size,
+  width = "450px",
 }) => {
   return (
     <View
       index={index}
       id={gsapType}
-      style={{ border: "1px solid green", height: "80vh", width: "40vw" }}
+      style={{
+        height: "80vh",
+        width: width,
+      }}
     >
       {/* Ambient Light */}
       <ambientLight intensity={0.3} />
