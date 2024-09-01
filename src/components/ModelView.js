@@ -56,7 +56,7 @@ const ModelView = ({
           }
         >
           <Iphone
-            scale={index === 1 ? [15, 15, 15] : [17, 17, 17]}
+            scale={index === 1 ? [12, 12, 12] : [13.6, 13.6, 13, 6]}
             item={item}
             size={size}
           />
