@@ -6,7 +6,7 @@ import Iguana from "../static/iguana.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Camera() {
+function Phone() {
   const boxRef = useRef(null);
   const textRef = useRef(null);
   const text2Ref = useRef(null);
@@ -48,44 +48,7 @@ function Camera() {
     });
   }, []);
 
-  return (
-    <Box
-      className="App"
-      sx={{
-        height: "100vh",
-        background: "black",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      <Box sx={{ width: "70%", maxWidth: "980px", color: "#FFFFFF" }}>
-        <Box
-          ref={textRef}
-          sx={{
-            color: "black",
-            fontSize: "80px",
-          }}
-        >
-          A camera that captures your wildest imagination.
-        </Box>
-        <Box
-          ref={text2Ref}
-          sx={{
-            color: "black",
-            fontSize: "28px",
-          }}
-        >
-          From dramatic framing flexibility to next-generation portraits, see
-          what you can do with our most powerful iPhone camera system.
-        </Box>
-      </Box>
-
-      <Box className="box" ref={boxRef}>
-        <img src={Iguana} style={{ width: "70%" }} />
-      </Box>
-    </Box>
-  );
+  return <Box>Phone</Box>;
 }
 
-export default Camera;
+export default Phone;

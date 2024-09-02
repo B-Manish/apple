@@ -5,6 +5,7 @@ import Apple from "./Apple";
 import Highlights from "./Highlights";
 import Threed from "./Threed";
 import Camera from "./Camera";
+import Phone from "./Phone";
 function Home() {
   return (
     <>
@@ -17,6 +18,7 @@ function Home() {
         {/* <Highlights /> */}
         <Threed />
         <Camera />
+        <Phone />
       </Box>
     </>
   );
