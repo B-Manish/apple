@@ -65,6 +65,7 @@ function Camera() {
           sx={{
             color: "black",
             fontSize: "80px",
+            fontWeight: "600",
           }}
         >
           A camera that captures your wildest imagination.

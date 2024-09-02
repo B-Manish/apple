@@ -19,6 +19,7 @@ function Home() {
         <Threed />
         <Camera />
         <Phone />
+        <Threed />
       </Box>
     </>
   );
