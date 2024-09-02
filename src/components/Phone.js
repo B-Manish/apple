@@ -27,7 +27,7 @@ function Phone() {
       end: "top 60%", // End animation when the top of the text reaches 60% down the viewport
       onEnter: fadeIn, // Trigger fadeIn when entering the viewport
       onLeaveBack: fadeIn, // Trigger fadeIn when scrolling back up
-      markers: true, // Optional: Show markers for start and end (useful for debugging)
+      //   markers: true, // Optional: Show markers for start and end (useful for debugging)
     });
   }, []);
 
