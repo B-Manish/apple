@@ -14,6 +14,7 @@ import { animateWithGsapTimeline } from "../utils/animations";
 
 const Threed = () => {
   const [isFirstRender, setIsFirstRender] = useState(true);
+  const [selectedModel, setSelectedModel] = useState(0);
   const [size, setSize] = useState("small");
   const [model, setModel] = useState({
     title: "iPhone 15 Pro in Natural Titanium",
@@ -97,6 +98,7 @@ const Threed = () => {
         flexDirection: "column",
         background: "black",
         overflowX: "hidden",
+        height: "100vh",
       }}
     >
       <Box
@@ -152,53 +154,89 @@ const Threed = () => {
           <View.Port />
         </Canvas>
       </Box>
-      <Box>
-        {model.title}
+      <Box sx={{ color: " white", margin: "0 0 25px 0" }}> {model.title}</Box>
+      <Box
+        sx={{
+          display: "flex",
+          width: "400px",
+          justifyContent: "space-between",
+        }}
+      >
         <Box
           sx={{
             display: "flex",
             flexDirection: "row",
-            padding: "8px",
+            padding: "0 10px",
             background: "#2E2E30",
-            borderRadius: "20px",
+            borderRadius: "100px",
+            height: "60px",
+            alignItems: "center",
           }}
         >
           {models.map((item, i) => (
             <Box
               key={i}
               sx={{
-                backgroundColor: item.color[0],
-                borderRadius: "100px",
-                width: "20px",
-                height: "20px",
-                marginRight: "9px",
+                borderRadius: "37px",
+                width: "37px",
+                height: "37px",
+                marginRight: i !== models?.length - 1 && "8px",
                 cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: selectedModel === i + 1 && "blue",
               }}
-              onClick={() => setModel(item)}
-            ></Box>
+            >
+              <Box
+                sx={{
+                  borderRadius: "32px",
+                  width: "32px",
+                  height: "32px",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: selectedModel === i + 1 && "white",
+                }}
+              >
+                <Box
+                  sx={{
+                    backgroundColor: item.color[0],
+                    borderRadius: "25px",
+                    width: "25px",
+                    height: "25px",
+                  }}
+                  onClick={() => {
+                    setModel(item);
+                    setSelectedModel(i + 1);
+                  }}
+                />
+              </Box>
+            </Box>
           ))}
         </Box>
         <Box
           sx={{
             display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             background: "#2E2E30",
-            borderRadius: "10px",
+            borderRadius: "100px",
             padding: "0 10px",
           }}
         >
-          {sizes.map((item) => (
+          {sizes.map((item, index) => (
             <Box
               key={item?.label}
               sx={{
-                border: "1px solid blue",
                 backgroundColor: size === item?.value ? "white" : "grey",
                 color: size === item?.value ? "black" : "black",
-                height: "35px",
-                width: "35px",
-                borderRadius: "25px",
-                display: "grid",
-                placeItems: "center",
-                marginRight: "10px",
+                height: "25px",
+                width: "25px",
+                borderRadius: "35px",
+                padding: "5px",
+                marginRight: index !== sizes?.length - 1 && "10px",
                 cursor: "pointer",
               }}
               onClick={() => setSize(item?.value)}

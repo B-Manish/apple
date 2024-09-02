@@ -26,7 +26,7 @@ const ModelView = ({
       index={index}
       id={gsapType}
       style={{
-        height: "80vh",
+        height: "calc(80vh - 150px)",
         width: width,
       }}
     >
