@@ -4,6 +4,7 @@ import "../App.css";
 import Apple from "./Apple";
 import Highlights from "./Highlights";
 import Threed from "./Threed";
+import Camera from "./Camera";
 function Home() {
   return (
     <>
@@ -15,6 +16,7 @@ function Home() {
         <Apple />
         {/* <Highlights /> */}
         <Threed />
+        <Camera />
         {/* <Box>
           <Box className="roboto" sx={{ color: "#5BF2CE" }}>
             Hi, my name is
