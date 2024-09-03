@@ -6,6 +6,7 @@ import Highlights from "./Highlights";
 import Threed from "./Threed";
 import Camera from "./Camera";
 import Phone from "./Phone";
+import CustomCarousel from "./CustomCarousel";
 function Home() {
   return (
     <>
@@ -18,6 +19,7 @@ function Home() {
         {/* <Highlights /> */}
         <Threed />
         <Camera />
+        <CustomCarousel />
         <Phone />
         <Threed />
       </Box>
