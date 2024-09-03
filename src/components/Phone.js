@@ -8,6 +8,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Phone() {
   const imgRef = useRef(null);
+  const p1 = useRef(null);
+  const p2 = useRef(null);
 
   useEffect(() => {
     const fadeIn = () => {
@@ -46,11 +48,17 @@ function Phone() {
           <img src={iPhone} />
         </Box>
         <Box>
-          <Box sx={{ color: "#86868b", fontSize: "21px", fontWeight: "600" }}>
+          <Box
+            sx={{ color: "#86868b", fontSize: "21px", fontWeight: "600" }}
+            ref={p1}
+          >
             The 48MP Main camera is more advanced than ever, capturing
             super‑high‑resolution photos with a new level of detail and colour.
           </Box>
-          <Box sx={{ color: "#86868b", fontSize: "21px", fontWeight: "600" }}>
+          <Box
+            sx={{ color: "#86868b", fontSize: "21px", fontWeight: "600" }}
+            ref={p2}
+          >
             You’ll see the improvements in your portraits. And now you no longer
             have to switch to Portrait mode. If your subject is a person, dog or
             cat, iPhone automatically captures depth information. So you can
