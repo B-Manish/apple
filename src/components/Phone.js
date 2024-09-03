@@ -47,9 +47,14 @@ function Phone() {
         <Box ref={imgRef}>
           <img src={iPhone} />
         </Box>
-        <Box>
+        <Box sx={{ padding: "0 0 0 50px" }}>
           <Box
-            sx={{ color: "#86868b", fontSize: "21px", fontWeight: "600" }}
+            sx={{
+              color: "#86868b",
+              fontSize: "21px",
+              fontWeight: "600",
+              m: "0 0 30px 0",
+            }}
             ref={p1}
           >
             The 48MP Main camera is more advanced than ever, capturing
