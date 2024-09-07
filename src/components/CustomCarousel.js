@@ -23,43 +23,40 @@ const Carousel = () => {
 
   useEffect(() => {
     // Fade in the first image on mount
-    gsap.from(photoRefs.current[0], { opacity: 0, duration: 1 });
+    gsap.from(photoRefs.current[currentIndex], { opacity: 0, duration: 1 });
   }, []);
 
   const goToNext = () => {
     const newIndex = (currentIndex + 1) % photos.length;
-    animateSlide(newIndex, 1);
+    animateSlide(newIndex);
     setCurrentIndex(newIndex);
   };
 
   const goToPrev = () => {
     const newIndex = (currentIndex - 1 + photos.length) % photos.length;
-    animateSlide(newIndex, -1);
+    animateSlide(newIndex);
     setCurrentIndex(newIndex);
   };
 
-  const animateSlide = (newIndex, direction) => {
-    const currentPhoto = photoRefs.current[currentIndex];
-    const nextPhoto = photoRefs.current[newIndex];
-
+  const animateSlide = (newIndex) => {
     const timeline = gsap.timeline();
 
-    // Animate out current photo
-    timeline
-      .to(currentPhoto, {
-        x: -600 * direction, // slide left/right
-        opacity: 0,
-        duration: 1,
-        ease: "power2.out",
-      })
-      .set(currentPhoto, { x: 600 * direction, opacity: 0 });
+    // Slide all images to the left
+    photoRefs.current.forEach((photo, index) => {
+      const offset = index - newIndex;
+      const isCurrent = index === newIndex;
 
-    // Animate in new photo
-    timeline.fromTo(
-      nextPhoto,
-      { x: 600 * direction, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1, ease: "power2.inOut" }
-    );
+      timeline.to(
+        photo,
+        {
+          x: offset * 300, // Each photo 300px apart
+          opacity: isCurrent ? 1 : 0.5,
+          duration: 1,
+          ease: "power2.inOut",
+        },
+        0
+      );
+    });
   };
 
   return (
@@ -72,9 +69,18 @@ const Carousel = () => {
         margin: "0 auto",
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
       }}
     >
-      <Box sx={{ position: "relative", width: "100%", height: "100%" }}>
+      <Box
+        sx={{
+          position: "relative",
+          width: "600px",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
         {photos.map((photo, index) => (
           <img
             key={index}
@@ -83,11 +89,12 @@ const Carousel = () => {
             ref={(el) => (photoRefs.current[index] = el)}
             style={{
               position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              opacity: currentIndex === index ? 1 : 0,
+              top: "50%",
+              left: "50%",
+              transform: `translate(${(index - currentIndex) * 300}px, -50%)`,
+              width: "400px",
+              height: "auto",
+              opacity: currentIndex === index ? 1 : 0.5,
               transition: "opacity 0.5s ease",
             }}
           />
