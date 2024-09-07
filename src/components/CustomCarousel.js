@@ -21,13 +21,13 @@ const Carousel = () => {
   }, []);
 
   const goToNext = () => {
-    const newIndex = (currentIndex + 1) % photos.length;
+    const newIndex = currentIndex + 1;
     animateSlide(newIndex);
     setCurrentIndex(newIndex);
   };
 
   const goToPrev = () => {
-    const newIndex = (currentIndex - 1 + photos.length) % photos.length;
+    const newIndex = currentIndex - 1;
     animateSlide(newIndex);
     setCurrentIndex(newIndex);
   };
@@ -97,6 +97,7 @@ const Carousel = () => {
       </Box>
 
       <Button
+        disabled={currentIndex === 0 ? true : false}
         onClick={goToPrev}
         sx={{
           position: "absolute",
@@ -114,6 +115,7 @@ const Carousel = () => {
       </Button>
 
       <Button
+        disabled={currentIndex === 6 ? true : false}
         onClick={goToNext}
         sx={{
           position: "absolute",
