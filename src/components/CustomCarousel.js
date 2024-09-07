@@ -9,12 +9,6 @@ import five from "../static/carousel/5.jpg";
 import six from "../static/carousel/6.jpg";
 import seven from "../static/carousel/7.jpg";
 
-// const photos = [
-//   "https://via.placeholder.com/600x400?text=Photo+1",
-//   "https://via.placeholder.com/600x400?text=Photo+2",
-//   "https://via.placeholder.com/600x400?text=Photo+3",
-// ];
-
 const photos = [one, two, three, four, five, six, seven];
 
 const Carousel = () => {
@@ -63,22 +57,24 @@ const Carousel = () => {
     <Box
       sx={{
         position: "relative",
-        width: "600px",
-        height: "400px",
-        overflow: "hidden",
-        margin: "0 auto",
+        width: "100vw",
+        height: "100vh",
         display: "flex",
-        alignItems: "center",
         justifyContent: "center",
+        alignItems: "center",
+        overflow: "hidden",
+        backgroundColor: "#f5f5f5", // Example background to distinguish outer box
       }}
     >
       <Box
         sx={{
           position: "relative",
           width: "600px",
-          height: "100%",
+          height: "400px",
           display: "flex",
           alignItems: "center",
+          justifyContent: "center",
+          overflow: "hidden",
         }}
       >
         {photos.map((photo, index) => (
