@@ -57,13 +57,12 @@ const Carousel = () => {
     <Box
       sx={{
         position: "relative",
-        width: "100vw",
         height: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         overflow: "hidden",
-        backgroundColor: "#f5f5f5", // Example background to distinguish outer box
+        backgroundColor: "black", // Example background to distinguish outer box
       }}
     >
       <Box
