@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import "./Carousel.css"; // Create a CSS file for basic styles
 import { Box, Button } from "@mui/material";
 import one from "../static/carousel/1.jpg";
 import two from "../static/carousel/2.jpg";
@@ -66,38 +65,68 @@ const Carousel = () => {
   return (
     <Box
       sx={{
-        display: "flex",
-        width: "90vw",
-        height: "100vh",
+        position: "relative",
+        width: "600px",
+        height: "400px",
         overflow: "hidden",
-        // margin: "0 auto",
-        border: "1px solid red",
+        margin: "0 auto",
+        display: "flex",
         alignItems: "center",
-        justifyContent: "center",
       }}
     >
-      <Box
-        sx={{
-          width: "600px",
-          height: "400px",
-          border: "1px solid yellow",
-          display: "flex",
-        }}
-      >
+      <Box sx={{ position: "relative", width: "100%", height: "100%" }}>
         {photos.map((photo, index) => (
           <img
             key={index}
             src={photo}
             alt={`Slide ${index + 1}`}
             ref={(el) => (photoRefs.current[index] = el)}
-            // className={`carousel-photo ${
-            //   index === currentIndex ? "active" : ""
-            // }`}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              opacity: currentIndex === index ? 1 : 0,
+              transition: "opacity 0.5s ease",
+            }}
           />
         ))}
       </Box>
-      <Button onClick={goToPrev}>Previous</Button>
-      <Button onClick={goToNext}>Next</Button>
+
+      <Button
+        onClick={goToPrev}
+        sx={{
+          position: "absolute",
+          top: "50%",
+          left: 10,
+          transform: "translateY(-50%)",
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          color: "white",
+          "&:hover": {
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+          },
+        }}
+      >
+        Previous
+      </Button>
+
+      <Button
+        onClick={goToNext}
+        sx={{
+          position: "absolute",
+          top: "50%",
+          right: 10,
+          transform: "translateY(-50%)",
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          color: "white",
+          "&:hover": {
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+          },
+        }}
+      >
+        Next
+      </Button>
     </Box>
   );
 };
