@@ -8,9 +8,9 @@
 
 .carousel-wrapper {
   display: flex;
-  position: relative;
-  width: 100%;
-  height: 100%;
+  /* position: relative; */
+  width: "600px";
+  height: "400px";
 }
 
 .carousel-photo {

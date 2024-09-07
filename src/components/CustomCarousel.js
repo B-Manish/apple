@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import "./Carousel.css"; // Create a CSS file for basic styles
+import { Box, Button } from "@mui/material";
 import one from "../static/carousel/1.jpg";
 import two from "../static/carousel/2.jpg";
 import three from "../static/carousel/3.jpg";
@@ -63,23 +64,41 @@ const Carousel = () => {
   };
 
   return (
-    <div className="carousel-container">
-      <div className="carousel-wrapper">
+    <Box
+      sx={{
+        display: "flex",
+        width: "90vw",
+        height: "100vh",
+        overflow: "hidden",
+        // margin: "0 auto",
+        border: "1px solid red",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Box
+        sx={{
+          width: "600px",
+          height: "400px",
+          border: "1px solid yellow",
+          display: "flex",
+        }}
+      >
         {photos.map((photo, index) => (
           <img
             key={index}
             src={photo}
             alt={`Slide ${index + 1}`}
             ref={(el) => (photoRefs.current[index] = el)}
-            className={`carousel-photo ${
-              index === currentIndex ? "active" : ""
-            }`}
+            // className={`carousel-photo ${
+            //   index === currentIndex ? "active" : ""
+            // }`}
           />
         ))}
-      </div>
-      <button onClick={goToPrev}>Previous</button>
-      <button onClick={goToNext}>Next</button>
-    </div>
+      </Box>
+      <Button onClick={goToPrev}>Previous</Button>
+      <Button onClick={goToNext}>Next</Button>
+    </Box>
   );
 };
 
