@@ -15,10 +15,10 @@ const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const photoRefs = useRef([]);
 
-  useEffect(() => {
-    // Fade in the first image on mount
-    gsap.from(photoRefs.current[currentIndex], { opacity: 0, duration: 1 });
-  }, []);
+  // useEffect(() => {
+  //   // Fade in the first image on mount
+  //   gsap.from(photoRefs.current[currentIndex], { opacity: 0, duration: 1 });
+  // }, []);
 
   const goToNext = () => {
     const newIndex = currentIndex + 1;
@@ -43,7 +43,7 @@ const Carousel = () => {
       timeline.to(
         photo,
         {
-          x: offset * 300, // Each photo 300px apart
+          x: offset * 600, // Each photo 300px apart
           opacity: isCurrent ? 1 : 0.5,
           duration: 1,
           ease: "power2.inOut",
@@ -56,24 +56,21 @@ const Carousel = () => {
   return (
     <Box
       sx={{
-        position: "relative",
         height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
         overflow: "hidden",
-        backgroundColor: "black", // Example background to distinguish outer box
+        backgroundColor: "black",
       }}
     >
       <Box
         sx={{
-          position: "relative",
           width: "600px",
           height: "400px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          overflow: "hidden",
+          // overflow: "hidden",
+          border: "1px solid red",
+          marginTop: "calc(50% - 600px)",
         }}
       >
         {photos.map((photo, index) => (
@@ -83,14 +80,12 @@ const Carousel = () => {
             alt={`Slide ${index + 1}`}
             ref={(el) => (photoRefs.current[index] = el)}
             style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: `translate(${(index - currentIndex) * 300}px, -50%)`,
-              width: "400px",
-              height: "auto",
+              // transform: `translate(${(index - currentIndex) * 300}px, -50%)`,
+              width: "600px",
               opacity: currentIndex === index ? 1 : 0.5,
               transition: "opacity 0.5s ease",
+              border: "2px solid green",
+              margin: "0 20px",
             }}
           />
         ))}
@@ -100,12 +95,8 @@ const Carousel = () => {
         disabled={currentIndex === 0 ? true : false}
         onClick={goToPrev}
         sx={{
-          position: "absolute",
-          top: "50%",
-          left: 10,
-          transform: "translateY(-50%)",
           backgroundColor: "rgba(0, 0, 0, 0.5)",
-          color: "white",
+          color: "black",
           "&:hover": {
             backgroundColor: "rgba(0, 0, 0, 0.7)",
           },
@@ -118,10 +109,6 @@ const Carousel = () => {
         disabled={currentIndex === 6 ? true : false}
         onClick={goToNext}
         sx={{
-          position: "absolute",
-          top: "50%",
-          right: 10,
-          transform: "translateY(-50%)",
           backgroundColor: "rgba(0, 0, 0, 0.5)",
           color: "white",
           "&:hover": {
@@ -131,6 +118,7 @@ const Carousel = () => {
       >
         Next
       </Button>
+      {/* </Box> */}
     </Box>
   );
 };
